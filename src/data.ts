@@ -8,7 +8,7 @@ export const ARCHITECT_INFO = {
   // heroImage: "/src/assets/images/moroccan_villa_hero_1782320220379.jpg",
   // profileImage: "/src/assets/images/architect_portrait_1782320236586.jpg",
   heroImage: "/images/moroccan_villa_hero_1782320220379.jpg",
-  profileImage: "/images/architect_portrait_1782320236586.jpg",
+  profileImage: "/images/architect_portrait_1782320236586.png",
   stats: [
     { value: 15, label: "Années d'expérience", suffix: "+" },
     { value: 120, label: "Projets réalisés", suffix: "" },
