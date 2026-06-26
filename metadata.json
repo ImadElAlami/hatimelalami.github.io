@@ -1,0 +1,6 @@
+{
+  "name": "Cabinet d'Architecte Hatim El Alami",
+  "description": "Portfolio et site vitrine haut de gamme pour un architecte d'excellence au Maroc. Conception de villas contemporaines, résidences R+1 à R+3 et espaces commerciaux d'exception.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
