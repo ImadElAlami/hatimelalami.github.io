@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { useForm } from "@formspree/react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,41 +21,43 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setStatus("submitting");
 
-    // Using user's Formspree target or fallback standard form handler
-    // Users can easily set their custom Formspree URL. We will provide a clean POST endpoint.
-    try {
-      const response = await fetch("https://formspree.io/f/xqevqdzj", { // Standard demo/placeholder Formspree ID or users can swap
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        })
-      });
+  //   // Using user's Formspree target or fallback standard form handler
+  //   // Users can easily set their custom Formspree URL. We will provide a clean POST endpoint.
+  //   try {
+  //     const response = await fetch("https://formspree.io/f/xqevqdzj", { // Standard demo/placeholder Formspree ID or users can swap
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json"
+  //       },
+  //       body: JSON.stringify({
+  //         fullName: formData.fullName,
+  //         email: formData.email,
+  //         subject: formData.subject,
+  //         message: formData.message
+  //       })
+  //     });
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ fullName: "", email: "", subject: "", message: "" });
-      } else {
-        const data = await response.json();
-        throw new Error(data.error || "Erreur lors de l'envoi. Veuillez réessayer.");
-      }
-    } catch (err: any) {
-      console.error(err);
-      setStatus("error");
-      setErrorMessage(err.message || "Une erreur de connexion est survenue. Veuillez réessayer.");
-    }
-  };
+  //     if (response.ok) {
+  //       setStatus("success");
+  //       setFormData({ fullName: "", email: "", subject: "", message: "" });
+  //     } else {
+  //       const data = await response.json();
+  //       throw new Error(data.error || "Erreur lors de l'envoi. Veuillez réessayer.");
+  //     }
+  //   } catch (err: any) {
+  //     console.error(err);
+  //     setStatus("error");
+  //     setErrorMessage(err.message || "Une erreur de connexion est survenue. Veuillez réessayer.");
+  //   }
+  // };
 
+  const [formspreeState, formspreeSubmit] = useForm("xqevqdzj");
+  
   return (
     <section 
       id="contact" 
@@ -215,8 +218,20 @@ export default function Contact() {
                     </button>
                   </motion.div>
                 ) : (
-                  <motion.form 
-                    onSubmit={handleSubmit}
+                 <motion.form 
+                    onSubmit={async (e) => {
+                      await formspreeSubmit(e);
+
+                      if (formspreeState.succeeded) {
+                        setStatus("success");
+                        setFormData({
+                          fullName: "",
+                          email: "",
+                          subject: "",
+                          message: ""
+                        });
+                      }
+                    }}
                     className="space-y-6"
                     key="form-fields"
                   >
