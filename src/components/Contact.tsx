@@ -1,8 +1,14 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { useForm, ValidationError } from '@formspree/react';
+
 
 export default function Contact() {
+  const [state, handleSubmit] = useForm("xqevqdzj");
+  if (state.succeeded) {
+      return <p>Thanks for joining!</p>;
+  }
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -184,7 +190,7 @@ export default function Contact() {
             className="lg:col-span-7 bg-neutral-subtle border border-gray-100 p-8 sm:p-10 rounded-2xl relative"
             id="contact-form-column"
           >
-            <form className="space-y-6" action="https://formspree.io/f/xqevqdzj" method="POST">
+            
               <AnimatePresence mode="wait">
                 {status === "success" ? (
                   <motion.div
@@ -348,7 +354,7 @@ export default function Contact() {
                   </motion.form>
                 )}
               </AnimatePresence>
-            </form>
+            
           </motion.div>
 
         </div>
