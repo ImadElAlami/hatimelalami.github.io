@@ -219,22 +219,24 @@ export default function Contact() {
                   </motion.div>
                 ) : (
                  <motion.form 
-                    onSubmit={async (e) => {
-                      await formspreeSubmit(e);
+                    onSubmit={formspreeSubmit}
+                    // onSubmit={async (e) => {
+                    //   await formspreeSubmit(e);
 
-                      if (formspreeState.succeeded) {
-                        setStatus("success");
-                        setFormData({
-                          fullName: "",
-                          email: "",
-                          subject: "",
-                          message: ""
-                        });
-                      }
-                    }}
+                    //   if (formspreeState.succeeded) {
+                    //     setStatus("success");
+                    //     setFormData({
+                    //       fullName: "",
+                    //       email: "",
+                    //       subject: "",
+                    //       message: ""
+                    //     });
+                    //   }
+                    // }}
                     className="space-y-6"
                     key="form-fields"
                   >
+                    
                     
                     {/* Status Banner for error handling */}
                     {status === "error" && (
