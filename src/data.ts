@@ -5,8 +5,10 @@ export const ARCHITECT_INFO = {
   title: "Architecte DPLG / Designer d'Espaces",
   location: "Salé, Maroc",
   bio: "Diplômé de l'École Nationale d'Architecture et fort de plus de 15 ans d'expérience, Hatim El Alami conçoit des architectures d'exception au Maroc. Son approche allie les lignes pures et épurées du minimalisme scandinave à la noblesse et au raffinement de l'artisanat marocain traditionnel.\n\nChaque projet est traité comme une œuvre unique, plaçant la fluidité de la lumière, la performance thermique passive et la relation intérieur-extérieur au cœur de la conception. Que ce soit pour une villa de prestige ou un immeuble collectif d'envergure, nous vous accompagnons de l'esquisse initiale jusqu'à la délivrance des autorisations administratives.",
-  heroImage: "/src/assets/images/moroccan_villa_hero_1782320220379.jpg",
-  profileImage: "/src/assets/images/architect_portrait_1782320236586.jpg",
+  // heroImage: "/src/assets/images/moroccan_villa_hero_1782320220379.jpg",
+  // profileImage: "/src/assets/images/architect_portrait_1782320236586.jpg",
+  heroImage: "/images/moroccan_villa_hero_1782320220379.jpg",
+  profileImage: "/images/architect_portrait_1782320236586.jpg",
   stats: [
     { value: 15, label: "Années d'expérience", suffix: "+" },
     { value: 120, label: "Projets réalisés", suffix: "" },
