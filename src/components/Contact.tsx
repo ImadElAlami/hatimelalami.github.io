@@ -219,7 +219,11 @@ export default function Contact() {
                   </motion.div>
                 ) : (
                  <motion.form 
-                    onSubmit={formspreeSubmit}
+                    // onSubmit={formspreeSubmit}
+                    onSubmit={(e) => {
+                      console.log("SUBMIT FIRED");
+                      formspreeSubmit(e);
+                    }}
                     // onSubmit={async (e) => {
                     //   await formspreeSubmit(e);
 
@@ -234,7 +238,7 @@ export default function Contact() {
                     //   }
                     // }}
                     className="space-y-6"
-                    key="form-fields"
+                    // key="form-fields"
                   >
                     
                     
