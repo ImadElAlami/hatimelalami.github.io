@@ -4,16 +4,16 @@ export const ARCHITECT_INFO = {
   name: "Hatim El Alami",
   title: "Architecte DPLG / Designer d'Espaces",
   location: "Salé, Maroc",
-  bio: "Diplômé de l'École Nationale d'Architecture et fort de plus de 15 ans d'expérience, Hatim El Alami conçoit des architectures d'exception au Maroc. Son approche allie les lignes pures et épurées du minimalisme scandinave à la noblesse et au raffinement de l'artisanat marocain traditionnel.\n\nChaque projet est traité comme une œuvre unique, plaçant la fluidité de la lumière, la performance thermique passive et la relation intérieur-extérieur au cœur de la conception. Que ce soit pour une villa de prestige ou un immeuble collectif d'envergure, nous vous accompagnons de l'esquisse initiale jusqu'à la délivrance des autorisations administratives.",
+  bio: "Diplômé de l'École Nationale d'Architecture et fort de plus de 25 ans d'expérience, Hatim El Alami conçoit des architectures d'exception au Maroc. Son approche allie les lignes pures et épurées du minimalisme scandinave à la noblesse et au raffinement de l'artisanat marocain traditionnel.\n\nChaque projet est traité comme une œuvre unique, plaçant la fluidité de la lumière, la performance thermique passive et la relation intérieur-extérieur au cœur de la conception. Que ce soit pour une villa de prestige ou un immeuble collectif d'envergure, nous vous accompagnons de l'esquisse initiale jusqu'à la délivrance des autorisations administratives.",
   // heroImage: "/src/assets/images/moroccan_villa_hero_1782320220379.jpg",
   // profileImage: "/src/assets/images/architect_portrait_1782320236586.jpg",
   heroImage: "/images/moroccan_villa_hero_1782320220379.jpg",
   profileImage: "/images/architect_portrait_1782320236586.png",
   stats: [
-    { value: 15, label: "Années d'expérience", suffix: "+" },
-    { value: 120, label: "Projets réalisés", suffix: "" },
+    { value: 25, label: "Années d'expérience", suffix: "+" },
+    { value: 420, label: "Projets réalisés", suffix: "+" },
     { value: 98, label: "Clients satisfaits", suffix: "%" },
-    { value: 12, label: "Villes desservies", suffix: "" }
+    { value: 3, label: "Villes desservies", suffix: "" }
   ],
   certifications: [
     "Membre de l'Ordre National des Architectes du Maroc (Conseil Régional de Salé)",
@@ -246,41 +246,41 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: "t1",
-    author: "Karim Alami",
+    author: "Lamiaa Serraf",
     projectType: "Villa Moderne R+1, Salé",
-    text: "Une expérience d'exception pour la construction de notre villa familiale à Salé. Hatim a su marier une pureté esthétique incroyable avec la réalité thermique du climat local. Le patio central est un havre de paix. Je recommande vivement son expertise administrative.",
+    text: "شكراً مهندس حاتم… على الاحتراف ديالك، وعلى الأخلاق، وعلى الدقّة اللي ترفع الراس. هاذي شهادة حق: إنت قدوة فشغلك، وفخر لأي مشروع يشيل اسمك.وكل الشكر والتقدير للمهندس حاتم العالمي… راجل اللي ورّانا أن الدقّة ماشي غير مهارة، هاذي طريقة فالحياة. وشهادتي فيك مهما نقول تبقى قليلة، بس الحق ينقال: تعاملك راقي، والتزامك بالمواعيد كأن الوقت أمانة بيدك، وأمانتك بالشغل تعلّم قبل لا تنجز",
     rating: 5,
-    date: "Mai 2025"
+    date: "Décembre 2025"
   },
   {
     id: "t2",
-    author: "Nadia Mansouri",
-    projectType: "Immeuble R+2, Casablanca Anfa",
-    text: "Hatim El Alami a conçu les plans de notre immeuble de rapport R+2. Son sens aigu du détail, sa rigueur pour optimiser l'aménagement intérieur et sa réactivité lors des commissions d'instruction nous ont permis d'obtenir le permis de construire en un temps record.",
+    author: "meriyem Elidrissi",
+    projectType: "Immeuble R+2, Salé",
+    text: "Mon expérience avec l'ingénieur Hatem Al-Alami a été exceptionnelle. Ses services se sont distingués par leur précision et leur excellence, une communication claire et professionnelle, et une ponctualité irréprochable.",
     rating: 5,
-    date: "Mars 2024"
+    date: "Février 2026"
   },
   {
     id: "t3",
-    author: "Famille Tazi",
-    projectType: "Villa Contemporaine, Rabat Souissi",
-    text: "Nous cherchions un architecte capable d'insuffler une âme contemporaine tout en conservant une discrétion et des volumes élégants. Hatim  a réalisé des plans d'une perfection absolue, très appréciés par notre entrepreneur de gros œuvre.",
+    author: "Smail Smail",
+    projectType: "Villa Contemporaine, Rabat ",
+    text: "أتقدم بجزيل الشكر والعرفان للأستاذ المهندس المعماري حاتم العلمي على تعامله الراقي، واحترافيته العالية، وحسن تعاونه طوال فترة العمل معه. لقد أبان عن كفاءةٍ مميزة، وحرصٍ كبير على جودة التنفيذ والدقة في التفاصيل، مما عكس إخلاصه وحبه لمهنته. نثمن عالياً روحه الطيبة، وأسلوبه الرفيع في التواصل والتعامل، الذي جعل من تجربة العمل معه تجربة مميزة يسودها الاحترام والتفاهم. جزاه الله خيرًا ووفقه في مسيرته المهنية، ونسأل الله أن يكتب له مزيدًا من النجاح والتوفيق.مع خالص التقدير والاحترام،",
     rating: 5,
-    date: "Janvier 2025"
+    date: "Novembre 2025"
   },
   {
     id: "t4",
-    author: "Sofia Benani",
-    projectType: "Concept Store de Luxe, Casablanca",
-    text: "La façade de verre suspendue et le jeu de double hauteur conçus par Hatim font de notre boutique un véritable repère architectural. Sa vision minimaliste et son raffinement transparaissent dans chaque angle de l'espace.",
+    author: "Fatima akabli",
+    projectType: "Concept Commercial Store de Luxe, Rabat",
+    text: "كانت تجربتي مع المهندس حاتم العلمي على قدرٍ عالٍ من التميّز. فقد اتّسمت خدماته بالدقة والإتقان، وتّميز بالتواصل الواضح والمهني، إضافة إلى التزامه الكامل بالمواعيد. أظهر مستوى رفيعًا من الاحترافية والأمانة في أداء مهامه، وأوصي بالتعامل معه لما يقدّمه من جودة وثقة",
     rating: 5,
-    date: "Novembre 2024"
+    date: "janvier 2026"
   },
   {
     id: "t5",
-    author: "Amine Chraïbi",
-    projectType: "Résidence Collective R+3, Tanger",
-    text: "En tant que promoteur immobilier, je suis extrêmement exigeant sur les délais et l'optimisation des plans de masse. L'étude 3D de Hatim a fait sensation auprès de nos investisseurs et a permis la pré-vente intégrale de nos appartements.",
+    author: "MOHAMMED MCHIOUER",
+    projectType: "Résidence Collective R+3, Salé",
+    text: "Un homme honnête est une personne intègre, droite et loyale.",
     rating: 5,
     date: "Février 2025"
   }

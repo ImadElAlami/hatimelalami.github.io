@@ -175,6 +175,7 @@ export default function Contact() {
           </motion.div>
 
           {/* RIGHT SIDE - Contact Form (Formspree Compatible) */}
+
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             animate={isContainerInView ? { opacity: 1, x: 0 } : {}}
@@ -182,171 +183,171 @@ export default function Contact() {
             className="lg:col-span-7 bg-neutral-subtle border border-gray-100 p-8 sm:p-10 rounded-2xl relative"
             id="contact-form-column"
           >
-            
-            <AnimatePresence mode="wait">
-              {status === "success" ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="flex flex-col items-center text-center py-10"
-                  key="success-card"
-                >
+            <form className="space-y-6" action="https://formspree.io/f/xqevqdzj" method="POST">
+              <AnimatePresence mode="wait">
+                {status === "success" ? (
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 200, delay: 0.15 }}
-                    className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-6 border border-emerald-100"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="flex flex-col items-center text-center py-10"
+                    key="success-card"
                   >
-                    <CheckCircle2 size={32} />
-                  </motion.div>
-                  <h3 className="font-display text-2xl font-bold text-navy-900 mb-3">
-                    Message envoyé avec succès !
-                  </h3>
-                  <p className="text-gray-500 font-light text-sm max-w-sm mb-8 leading-relaxed">
-                    Merci pour votre message. Nous l'analyserons attentivement au regard des contraintes d'urbanisme et nous vous recontacterons sous 24 à 48 heures.
-                  </p>
-                  <button
-                    onClick={() => setStatus("idle")}
-                    className="bg-navy-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors duration-300 cursor-pointer"
-                  >
-                    Envoyer un autre message
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form 
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                  key="form-fields"
-                >
-                  
-                  {/* Status Banner for error handling */}
-                  {status === "error" && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="p-4 rounded-xl bg-rose-50 text-rose-700 border border-rose-100 text-sm flex items-start gap-3"
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 200, delay: 0.15 }}
+                      className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-6 border border-emerald-100"
                     >
-                      <AlertCircle size={18} className="mt-0.5 flex-shrink-0" />
-                      <span>{errorMessage}</span>
+                      <CheckCircle2 size={32} />
                     </motion.div>
-                  )}
+                    <h3 className="font-display text-2xl font-bold text-navy-900 mb-3">
+                      Message envoyé avec succès !
+                    </h3>
+                    <p className="text-gray-500 font-light text-sm max-w-sm mb-8 leading-relaxed">
+                      Merci pour votre message. Nous l'analyserons attentivement au regard des contraintes d'urbanisme et nous vous recontacterons sous 24 à 48 heures.
+                    </p>
+                    <button
+                      onClick={() => setStatus("idle")}
+                      className="bg-navy-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors duration-300 cursor-pointer"
+                    >
+                      Envoyer un autre message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form 
+                    onSubmit={handleSubmit}
+                    className="space-y-6"
+                    key="form-fields"
+                  >
+                    
+                    {/* Status Banner for error handling */}
+                    {status === "error" && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="p-4 rounded-xl bg-rose-50 text-rose-700 border border-rose-100 text-sm flex items-start gap-3"
+                      >
+                        <AlertCircle size={18} className="mt-0.5 flex-shrink-0" />
+                        <span>{errorMessage}</span>
+                      </motion.div>
+                    )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Nom Complet */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {/* Nom Complet */}
+                      <div>
+                        <label 
+                          htmlFor="fullName" 
+                          className="block text-xs font-mono font-semibold text-gray-500 uppercase tracking-widest mb-2"
+                        >
+                          NOM COMPLET *
+                        </label>
+                        <input
+                          type="text"
+                          name="fullName"
+                          id="fullName"
+                          required
+                          value={formData.fullName}
+                          onChange={handleChange}
+                          placeholder="Ex: Amine Alami"
+                          disabled={status === "submitting"}
+                          className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 shadow-inner"
+                        />
+                      </div>
+
+                      {/* Email */}
+                      <div>
+                        <label 
+                          htmlFor="email" 
+                          className="block text-xs font-mono font-semibold text-gray-500 uppercase tracking-widest mb-2"
+                        >
+                          ADRESSE E-MAIL *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="Ex: amine@gmail.com"
+                          disabled={status === "submitting"}
+                          className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 shadow-inner"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Sujet */}
                     <div>
                       <label 
-                        htmlFor="fullName" 
+                        htmlFor="subject" 
                         className="block text-xs font-mono font-semibold text-gray-500 uppercase tracking-widest mb-2"
                       >
-                        NOM COMPLET *
+                        SUJET DU PROJET *
                       </label>
                       <input
                         type="text"
-                        name="fullName"
-                        id="fullName"
+                        name="subject"
+                        id="subject"
                         required
-                        value={formData.fullName}
+                        value={formData.subject}
                         onChange={handleChange}
-                        placeholder="Ex: Amine Alami"
+                        placeholder="Ex: Projet de conception villa R+1 à Salé"
                         disabled={status === "submitting"}
                         className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 shadow-inner"
                       />
                     </div>
 
-                    {/* Email */}
+                    {/* Message */}
                     <div>
                       <label 
-                        htmlFor="email" 
+                        htmlFor="message" 
                         className="block text-xs font-mono font-semibold text-gray-500 uppercase tracking-widest mb-2"
                       >
-                        ADRESSE E-MAIL *
+                        DÉTAIL DU PROJET / MESSAGE *
                       </label>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
+                      <textarea
+                        name="message"
+                        id="message"
                         required
-                        value={formData.email}
+                        rows={5}
+                        value={formData.message}
                         onChange={handleChange}
-                        placeholder="Ex: amine@gmail.com"
+                        placeholder="Décrivez brièvement votre projet, la localisation du terrain, s'il s'agit d'une villa ou d'une résidence, et vos contraintes spécifiques."
                         disabled={status === "submitting"}
-                        className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 shadow-inner"
+                        className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 resize-none shadow-inner"
                       />
                     </div>
-                  </div>
 
-                  {/* Sujet */}
-                  <div>
-                    <label 
-                      htmlFor="subject" 
-                      className="block text-xs font-mono font-semibold text-gray-500 uppercase tracking-widest mb-2"
-                    >
-                      SUJET DU PROJET *
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      id="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Ex: Projet de conception villa R+1 à Salé"
+                    {/* Submit Button */}
+                    <motion.button
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
+                      type="submit"
                       disabled={status === "submitting"}
-                      className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 shadow-inner"
-                    />
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label 
-                      htmlFor="message" 
-                      className="block text-xs font-mono font-semibold text-gray-500 uppercase tracking-widest mb-2"
+                      className="w-full bg-brand-blue hover:bg-brand-blue-hover text-white py-4 rounded-xl font-semibold tracking-wide text-sm shadow-md shadow-brand-blue/10 flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 cursor-pointer"
+                      id="submit-contact-form"
                     >
-                      DÉTAIL DU PROJET / MESSAGE *
-                    </label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Décrivez brièvement votre projet, la localisation du terrain, s'il s'agit d'une villa ou d'une résidence, et vos contraintes spécifiques."
-                      disabled={status === "submitting"}
-                      className="w-full bg-white border border-gray-100 focus:border-brand-blue rounded-xl px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none transition-colors duration-300 resize-none shadow-inner"
-                    />
-                  </div>
+                      {status === "submitting" ? (
+                        <>
+                          <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                          </svg>
+                          <span>Envoi en cours...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={16} />
+                          <span>Envoyer le message</span>
+                        </>
+                      )}
+                    </motion.button>
 
-                  {/* Submit Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="w-full bg-brand-blue hover:bg-brand-blue-hover text-white py-4 rounded-xl font-semibold tracking-wide text-sm shadow-md shadow-brand-blue/10 flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 cursor-pointer"
-                    id="submit-contact-form"
-                  >
-                    {status === "submitting" ? (
-                      <>
-                        <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        <span>Envoi en cours...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send size={16} />
-                        <span>Envoyer le message</span>
-                      </>
-                    )}
-                  </motion.button>
-
-                </motion.form>
-              )}
-            </AnimatePresence>
-
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </form>
           </motion.div>
 
         </div>
