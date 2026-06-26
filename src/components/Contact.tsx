@@ -219,11 +219,23 @@ export default function Contact() {
                   </motion.div>
                 ) : (
                  <motion.form 
+                  action="https://formspree.io/f/xqevqdzj"
+                  method="POST"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    formspreeSubmit(e);
+                  }}
+                  className="space-y-6"
+
                     // onSubmit={formspreeSubmit}
-                    onSubmit={(e) => {
-                      console.log("SUBMIT FIRED");
-                      formspreeSubmit(e);
-                    }}
+
+
+                    // onSubmit={(e) => {
+                    //   console.log("SUBMIT FIRED");
+                    //   formspreeSubmit(e);
+                    // }}
+
+
                     // onSubmit={async (e) => {
                     //   await formspreeSubmit(e);
 
@@ -237,7 +249,7 @@ export default function Contact() {
                     //     });
                     //   }
                     // }}
-                    className="space-y-6"
+                    // className="space-y-6"
                     // key="form-fields"
                   >
                     
